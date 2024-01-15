@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="{% static 'mdb5/css/mdb.min.css' %}" />
+
+    <title>Create Contact</title>
+    <style>
+    .sidebar {
+      background-color: #f8f9fa;
+      padding: 20px;
+      height: 150vh;
+      border-right: 1px solid #e0e0e0;
+    }
+
+    .main-content {
+      padding: 20px;
+    }
+    </style>
+  </head>
+  <body style="font-family:'Arial', sans-serif;">
+    <div class="card">
+      <div class="card-body">
+        <div class="container">
+            
+          <h2 class="d-flex justify-content-between align-items-center">Create Contact<a class="btn btn-secondary btn-lg" href="{% url 'dash' %}" style="border-radius: 100px;" data-mdb-ripple-init role="button">cancel</a></h2>
+          <form method="post" action="{% url 'create_contact' %}">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name" name="name" required />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="mobile_number1">Phone number:</label>
+              <input type="text" class="form-control" id="mobile_number1" name="mobile_number1" pattern="[0-9]{10}" required />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="mobile_number2">Alternate phone number:</label>
+              <input type="text" class="form-control" id="mobile_number2" pattern="[0-9]{10}" name="mobile_number2" />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="address">Address:</label>
+              <textarea class="form-control" id="address" rows="3" name="address"></textarea required>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="email1">Email:</label>
+              <input type="email" class="form-control" id="email1" name="email1" required />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="email2">Alternate Email:</label>
+              <input type="email" class="form-control" id="email2" name="email2" />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="age">Age:</label>
+              <input type="number" class="form-control" id="age" name="age" />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="ig">Instagram Id:</label>
+              <input type="text" class="form-control" id="ig" name="ig" />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="x">X id:</label>
+              <input type="text" class="form-control" id="x" name="x" />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="telegram">Telegram:</label>
+              <input type="text" class="form-control" id="telegram" name="telegram" />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="linkedin">linkedin:</label>
+              <input type="text" class="form-control" id="linkedin" name="linkedin" />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Create Contact</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script type="text/javascript" src="{% static 'mdb5/js/mdb.umd.min.js' %}"></script>
+  </body>
+</html>

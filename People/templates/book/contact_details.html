@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <link rel="stylesheet" href="{% static 'mdb5/css/mdb.min.css' %}" />
+
+  <title>Details</title>
+  <style>
+    .sidebar {
+      background-color: #f8f9fa;
+      padding: 20px;
+      height: 150vh;
+      border-right: 1px solid #e0e0e0;
+    }
+
+    .main-content {
+      padding: 20px;
+    }
+  </style>
+  <script type="text/javascript" src="{% static 'mdb5/js/mdb.umd.min.js' %}"></script>
+</head>
+
+<body style="font-family:'Arial', sans-serif;">
+
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center">
+        <a class="btn btn-secondary" href="{% url 'dash' %}" style="border-radius: 100px;" data-mdb-ripple-init
+          role="button">back</a>
+        <form method="post" action="{% url 'delete_contact' contact.id %}" style="display: inline;">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger" style="border-radius: 100px;">Delete</button>
+        </form>
+      </div>
+      <br>
+      <h1>{{ contact.name }}</h1>
+      <br>
+      {% if contact.mobile_number1 %}
+      <p><b>Phone number</b>: {{ contact.mobile_number1 }}</p>
+      {% endif %}
+      {% if contact.mobile_number2 %}
+      <p><b>Alternate phone number</b>: {{ contact.mobile_number2 }}</p>
+      {% endif %}
+      {% if contact.address %}
+      <p><b>Address</b>: {{ contact.address }}</p>
+      {% endif %}
+      {% if contact.email1 %}
+      <p><b>Email</b>: {{ contact.email1 }}</p>
+      {% endif %}
+      {% if contact.email2 %}
+      <p><b>Alternate email</b>: {{ contact.email2 }}</p>
+      {% endif %}
+      {% if contact.age %}
+      <p><b>Age</b>: {{ contact.age }}</p>
+      {% endif %}
+      {% if contact.ig %}
+      <p><b>Instagram</b>: {{ contact.ig }}</p>
+      {% endif %}
+      {% if contact.x %}
+      <p><b>X</b>: {{ contact.x }}</p>
+      {% endif %}
+      {% if contact.telegram %}
+      <p><b>Telegram</b>: {{ contact.telegram }}</p>
+      {% endif %}
+      {% if contact.snapchat %}
+      <p><b>Snapchat</b>: {{ contact.snapchat }}</p>
+      {% endif %}
+      {% if contact.linkedin %}
+      <p><b>Linkedin</b>: {{ contact.linkedin }}</p>
+      {% endif %}
+    </div>
+  </div>
+</body>
+
+</html>
